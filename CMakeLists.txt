@@ -63,10 +63,11 @@ file(GLOB SRC_CODE
         "${PROJECT_SOURCE_DIR}/src/*.cc"
 )
 
-add_executable(${CMAKE_PROJECT_NAME} ${SRC_CODE}
-        src/media.cpp
-        src/media.h)
-
+add_executable(${CMAKE_PROJECT_NAME} ${SRC_CODE})
+target_compile_definitions(${CMAKE_PROJECT_NAME}
+        PRIVATE
+        __STDC_CONSTANT_MACROS  # FFmpeg 用于兼容 C++ 编译时的标准常量（如 INT64_C 等）定义所必需的，C++ 编译器默认不会启用该宏，需手动添加。
+)
 
 # target_include_directories(目标名 作用域 路径1 路径2 ...)
 target_include_directories(${CMAKE_PROJECT_NAME}
