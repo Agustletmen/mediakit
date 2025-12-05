@@ -54,6 +54,10 @@ message(STATUS "OPENCV 库文件路径: ${OPENCV_LIBRARY_DIRS}")
 message(STATUS "OPENCV 链接库: ${OPENCV_LIBRARIES}")
 
 
+set(HCNetSDK_INCLUDE_DIRS "${CMAKE_SOURCE_DIR}/include/libhikvision")
+set(HCNetSDK_LIBRARY_DIRS "${CMAKE_SOURCE_DIR}/lib/hikvision")
+set(HCNetSDK_LIBRARIES "hcnetsdk")
+
 file(GLOB SRC_CODE
         "${PROJECT_SOURCE_DIR}/include/*.h"
         "${PROJECT_SOURCE_DIR}/include/*.hpp"
@@ -75,6 +79,7 @@ target_include_directories(${CMAKE_PROJECT_NAME}
         ${PROJECT_SOURCE_DIR}/include
         ${FFMPEG_INCLUDE_DIRS}
         ${OPENCV_INCLUDE_DIRS}
+        ${HCNetSDK_INCLUDE_DIRS}
         #        PUBLIC   # 当前目标+依赖它的目标生效（对外暴露的头文件）
         #        INTERFACE # 仅对外暴露，自身不用
 )
@@ -86,6 +91,7 @@ target_link_directories(${CMAKE_PROJECT_NAME}
         ${PROJECT_SOURCE_DIR}/lib
         ${FFMPEG_LIBRARY_DIRS}
         ${OPENCV_LIBRARY_DIRS}
+        ${HCNetSDK_LIBRARY_DIRS}
 )
 
 #if (CMAKE_BUILD_TYPE MATCHES "^[Dd][Ee][Bb][Uu][Gg]$")
@@ -101,5 +107,6 @@ target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE
         #        ${OpenCV_LIB}
         ${FFMPEG_LIBRARIES}
         ${OPENCV_LIBRARIES}
+        ${HCNetSDK_LIBRARIES}
 )
 
