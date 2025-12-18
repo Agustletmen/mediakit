@@ -55,6 +55,12 @@ apt install libboost-all-dev
 apt install libbz2-dev
 apt install libz-dev
 
+#libffi-dev
+#meson
+#ninja-build
+#cmake
+#autoconf automake libtool
+
 
 apt install pkg-config
 apt install build-essential
