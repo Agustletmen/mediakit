@@ -2,7 +2,7 @@
 // Created by root on 2025/11/10.
 //
 
-#include "../include/media.h"
+#include "media.h"
 #include "libhikvision/HCNetSDK.h"
 
 auto input_path = "rtsp://192.168.3.115/video1";

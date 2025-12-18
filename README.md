@@ -1,9 +1,4 @@
 ```shell
-ABI
-
-ZERO_CHECK
-ALL_BUILD
-
 ffmpeg -version
 ffmpeg -devices    
 ffmpeg -protocols
