@@ -8,7 +8,7 @@
 auto input_path = "rtsp://192.168.3.115/video1";
 using namespace std;
 
-int foo()
+int ffmpegDemo()
 {
     av_log_set_level(AV_LOG_DEBUG); // 日志级别：AV_LOG_ERROR < AV_LOG_INFO < AV_LOG_DEBUG
     av_log_set_callback([](void* ptr, int level, const char* fmt, va_list vl)
@@ -352,7 +352,7 @@ void CALLBACK MessageCallback(LONG lCommand, NET_DVR_ALARMER* pAlarmer, char* pA
     return;
 }
 
-int getEvent()
+int listenEvent()
 {
     //---------------------------------------
     // 初始化
@@ -438,5 +438,5 @@ int getEvent()
 
 int main(int argc, char* argv[])
 {
-    return getEvent();
+    return listenEvent();
 }
